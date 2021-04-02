@@ -6,7 +6,6 @@ import '../../style.css';
 function App(props) {
   const [ procura, setProcura ] = useState('');
   const [ mensagem, setMensagem ] = useState([]);
-  const [ pokemonCards, setPokemonCards ] = useState([]);
   const [ carrinho, setCarrinho] = useState([]);
   const [ total, setTotal] = useState(0);
 				
@@ -17,14 +16,6 @@ function App(props) {
 	}
 	setMensagem("");
   }
-  
-    function addToCart(id) { 
-	let cart = carrinho;
-	cart.push(id)
-	setCarrinho(cart);
-	setTotal(total+pokemonCards[id].price);
-  }
-
 
   useEffect(() => {
 	const dTipos = {'bug':'inseto', 'dark':'noturno', 'dragon':'dragão', 'electric':'elétrico', 
