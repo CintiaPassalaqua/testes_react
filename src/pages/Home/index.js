@@ -6,8 +6,6 @@ import '../../style.css';
 function App(props) {
   const [ procura, setProcura ] = useState('');
   const [ mensagem, setMensagem ] = useState([]);
-  const [ carrinho, setCarrinho] = useState([]);
-  const [ total, setTotal] = useState(0);
 				
   function handlePesquisa() { 
 	if (procura==='bla') {
