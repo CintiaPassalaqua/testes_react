@@ -7,8 +7,6 @@ function App(props) {
   const [ procura, setProcura ] = useState('');
   const [ mensagem, setMensagem ] = useState([]);
   const [ pokemonCards, setPokemonCards ] = useState([]);
-  const [ erro, setErro] = useState(false);
-  const [ pokeShow, setPokeShow] = useState([]);
   const [ carrinho, setCarrinho] = useState([]);
   const [ total, setTotal] = useState(0);
 				
@@ -27,10 +25,6 @@ function App(props) {
 	setTotal(total+pokemonCards[id].price);
   }
 
-    function finalizarCompra() { 
-	setCarrinho([]);
-	setTotal(0);
-  }
 
   useEffect(() => {
 	const dTipos = {'bug':'inseto', 'dark':'noturno', 'dragon':'dragão', 'electric':'elétrico', 
@@ -65,10 +59,6 @@ function App(props) {
 		iniciais.push(n);
 		}
 		if (pokeList.length<iniciais.length) { fazPesquisa(iniciais[pokeList.length], true); }
-		else {
-			setPokemonCards(pokeList); 
-			setPokeShow([...pokeList.keys()]); 
-			}
 			
 	})
 	.catch(err => {		
@@ -76,18 +66,7 @@ function App(props) {
   }
 		fazPesquisa(iniciais[0], true);
 	},[]);
-  function renderCard(p_index, i) {
-	let p = pokemonCards[p_index];
-	if (!p.show) { 
-		return '';
-	}
-	return (<S.Card key={i} ><S.ImagemCard src={p.sprite} />
-	<h2>{ p.name.charAt(0).toUpperCase() + p.name.slice(1) }</h2>
-  <S.Price>R${ p.price.toFixed(2).replace('.', ',') }</S.Price>
-  <p><S.AddToCart onClick={() => addToCart(p_index)}>Adicionar ao Carrinho</S.AddToCart></p>	
-	</S.Card>)
-			
-  }
+
   
   
 
