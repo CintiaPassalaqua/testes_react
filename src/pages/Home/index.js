@@ -104,7 +104,7 @@ function App(props) {
     <S.Container>
 
     <S.Content>
-    <S.Input name="usuario" id="usuario" className="usuarioInput" placeholder="Senha" value={procura} onChange={e => setProcura(e.target.value.toLowerCase()) } />
+    <S.Input name="bla" id="bli" className="usuarioInput" placeholder="Senha" value={procura} onChange={e => setProcura(e.target.value.toLowerCase()) } />
 	<S.Button type="button" onClick={handlePesquisa}>Confirma</S.Button>
     </S.Content>
 	<S.Content>
