@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`	
-	width:800px;
+export const Container = styled.div`
 	margin:0 auto;
 `;
 
@@ -86,9 +85,9 @@ export const AddToCart = styled.button`{
 	}
 `;
 
-export const ImagemCard = styled.img`
-	width: 100%;
+export const ImagemPrincipal = styled.img`
 	background: #FFF;
-	border-radius: 1rem 1rem 0 5rem;
+	border-radius: 1rem 1rem 1rem 1rem;
+	margin: 10px;
 `;
 
