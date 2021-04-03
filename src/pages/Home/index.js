@@ -10,10 +10,10 @@ function App(props) {
   const [ yi, setYi ] = useState(300);
   const [ xi, setXi ] = useState(0);
   const [ s, setS ] = useState(3/2);
-  const [ baixo, setBaixo ] = useState(false);
-  const [ cima, setCima ] = useState(false);
-  const [ esquerda, setEsquerda ] = useState(false);
-  const [ direita, setDireita ] = useState(false);
+  //const [ baixo, setBaixo ] = useState(false);
+  //const [ cima, setCima ] = useState(false);
+  //const [ esquerda, setEsquerda ] = useState(false);
+  //const [ direita, setDireita ] = useState(false);
   const [ acerto, setAcerto] = useState(false);
   const [ mensagem, setMensagem ] = useState([]);
   const [ pos, setPos] = useState(130*s);
@@ -25,25 +25,26 @@ function App(props) {
 	if (procura==='a') {
 		setMensagem(["Pista 1 "+id,"bhdbf sdhfdg fsdfsdgfh sdfhgsdyfgefg y efysg duyf gsduyfg suyd f"]);
 		setAcerto(true)
+		setS(3/2);
 		return;	
 	}
 	setMensagem("");
   }
   
   function paraCima() { 
-	//setPos(pos-20*s);
+	setPos(pos-0*s);
 	setYi(yi+20*s);
   } 
   function paraBaixo() { 
-	//setPos(pos+20*s);
+	setPos(pos+0*s);
 	setYi(yi-20*s);
   }
   function paraDireita() { 
-	//setPosH(posH+20*s);
+	setPosH(posH+0*s);
 	setXi(xi-20*s);
   }
   function paraEsquerda() { 
-	//setPosH(posH-20*s);
+	setPosH(posH-0*s);
 	setXi(xi+20*s);
   }
   
