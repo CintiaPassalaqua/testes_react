@@ -53,6 +53,7 @@ export const ButtonArrow = styled.button`
 	border-radius: 0 .25rem .25rem 0;
 	color: #fff;
 	background: #000;
+	touch-action: manipulation;
 	
 	&:focus,
 	&:active {
