@@ -87,10 +87,10 @@ function App(props) {
 	if (!acerto) {
 		return (<><S.Content><Canvas draw={draw} /></S.Content>		
 		<S.Content>
-		<S.Button type="button" onClick={paraEsquerda}>-</S.Button>
-		<S.Button type="button" onClick={paraCima}>/\</S.Button>
-		<S.Button type="button" onClick={paraBaixo}>\/</S.Button>
-		<S.Button type="button" onClick={paraDireita}>-</S.Button>
+		<S.ButtonArrow type="button" onClick={paraEsquerda}>-</S.ButtonArrow>
+		<S.ButtonArrow type="button" onClick={paraBaixo}>\/</S.ButtonArrow>
+		<S.ButtonArrow type="button" onClick={paraCima}>/\</S.ButtonArrow>
+		<S.ButtonArrow type="button" onClick={paraDireita}>-</S.ButtonArrow>
 		</S.Content>
 		<S.Content><S.ImagemPrincipal src={pista1} /></S.Content><S.Content>
 		<S.Input name="bla" id="bli" className="usuarioInput" placeholder="Resposta" value={procura} onKeyDown={handlePesquisa} onChange={e => setProcura(e.target.value.toLowerCase()) } />

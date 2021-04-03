@@ -45,6 +45,22 @@ export const Button = styled.button`
 	}
 `;
 
+export const ButtonArrow = styled.button`
+	border: 1px solid #000;
+	height: 3.5rem;
+	width: 3.5rem;
+	margin: 0.5rem;
+	border-radius: 0 .25rem .25rem 0;
+	color: #fff;
+	background: #000;
+	
+	&:focus,
+	&:active {
+		outline: none;
+		box-shadow: none;
+	}
+`;
+
 export const ErrorMsg = styled.span`
 	display: block;
 	font-size: 0.9rem;
