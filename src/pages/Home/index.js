@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
-import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import * as S from './styled'
 import '../../style.css';
 import pista1 from './../../img/pista1.png';
