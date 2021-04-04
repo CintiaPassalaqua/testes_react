@@ -19,7 +19,7 @@ function App(props) {
   const [ boxes, setBoxes ] = useState([[390*s,-90*s-300],[390*s,-130*s-300],[370*s,-110*s-300],[350*s,-90*s-300],
 										[390*s,-190*s-300],[390*s,-210*s-300],[370*s,-210*s-300],[350*s,-190*s-300],
 										[590*s,-150*s-300],[590*s,-110*s-300],[570*s,-170*s-300],[550*s,-150*s-300]]);
-  const [ pontos, setPontos ] = useState(false);
+  const [ pontos, setPontos ] = useState(0);
   const [ personagem, setPersonagem ] = useState(ash1);
   const [ acerto, setAcerto] = useState(false);
   const [ mensagem, setMensagem ] = useState([]);
@@ -58,10 +58,10 @@ function App(props) {
 	if (id>-1) { 
 	var id2 = podeIr(0,-40*s, 3/4);
 	if (id2!==-1) { return }
-		var pt0 = spots.findIndex((p) => p[0]+xi===boxes[id][0] && p[1]+yi===boxes[id][1]);
-		var pt1 = spots.findIndex((p) => p[0]+xi===boxes[id][0] && p[1]+yi===boxes[id][1]-20*s);
-		if (pt0>-1) setPontos(pontos-1);
-		if (pt1>-1) setPontos(pontos+1);
+		var pt0 = spots.findIndex((p) => p[0]===boxes[id][0] && p[1]===boxes[id][1]);
+		var pt1 = spots.findIndex((p) => p[0]===boxes[id][0] && p[1]===boxes[id][1]-20*s);
+		if (pt0>-1 && pt1===-1) setPontos(pontos-1);
+		if (pt1>-1 && pt0===-1) setPontos(pontos+1);
 		var teste = boxes
 		teste[id] = [boxes[id][0],boxes[id][1]-20*s]
 		setBoxes(teste);
@@ -74,10 +74,10 @@ function App(props) {
 	if (id>-1) { 
 	var id2 = podeIr(0,40*s, 3/4);
 	if (id2!==-1) { return }
-		var pt0 = spots.findIndex((p) => p[0]+xi===boxes[id][0] && p[1]+yi===boxes[id][1]);
-		var pt1 = spots.findIndex((p) => p[0]+xi===boxes[id][0] && p[1]+yi===boxes[id][1]+20*s);
-		if (pt0>-1) setPontos(pontos-1);
-		if (pt1>-1) setPontos(pontos+1);
+		var pt0 = spots.findIndex((p) => p[0]===boxes[id][0] && p[1]===boxes[id][1]);
+		var pt1 = spots.findIndex((p) => p[0]===boxes[id][0] && p[1]===boxes[id][1]+20*s);
+		if (pt0>-1 && pt1===-1) setPontos(pontos-1);
+		if (pt1>-1 && pt0===-1) setPontos(pontos+1);
 		var teste = boxes
 		teste[id] = [boxes[id][0],boxes[id][1]+20*s]
 		setBoxes(teste);
@@ -91,10 +91,10 @@ function App(props) {
 	if (id>-1) { 
 	var id2 = podeIr(40*s, 0, 3/4);
 	if (id2!==-1) { return }
-		var pt0 = spots.findIndex((p) => p[0]+xi===boxes[id][0] && p[1]+yi===boxes[id][1]);
-		var pt1 = spots.findIndex((p) => p[0]+xi===boxes[id][0]+20*s && p[1]+yi===boxes[id][1]);
-		if (pt0>-1) setPontos(pontos-1);
-		if (pt1>-1) setPontos(pontos+1);
+		var pt0 = spots.findIndex((p) => p[0]===boxes[id][0] && p[1]===boxes[id][1]);
+		var pt1 = spots.findIndex((p) => p[0]===boxes[id][0]+20*s && p[1]===boxes[id][1]);
+		if (pt0>-1 && pt1===-1) setPontos(pontos-1);
+		if (pt1>-1 && pt0===-1) setPontos(pontos+1);
 		var teste = boxes
 		teste[id] = [boxes[id][0]+20*s,boxes[id][1]]
 		setBoxes(teste);
@@ -103,15 +103,16 @@ function App(props) {
   }
   function paraEsquerda() {
 	setPersonagem(ash2);
+	console.log(pontos);
 	var id = podeIr(-20*s, 0, 1/2);
 	if (id===-2) { return } //parede
 	if (id>-1) { 
 	var id2 = podeIr(-40*s, 0, 3/4);
 	if (id2!==-1) { return }
-		var pt0 = spots.findIndex((p) => p[0]+xi===boxes[id][0] && p[1]+yi===boxes[id][1]);
-		var pt1 = spots.findIndex((p) => p[0]+xi===boxes[id][0]-20*s && p[1]+yi===boxes[id][1]);
-		if (pt0>-1) setPontos(pontos-1);
-		if (pt1>-1) setPontos(pontos+1);
+		var pt0 = spots.findIndex((p) => p[0]===boxes[id][0] && p[1]===boxes[id][1]);
+		var pt1 = spots.findIndex((p) => p[0]===boxes[id][0]-20*s && p[1]===boxes[id][1]);
+		if (pt0>-1 && pt1===-1) setPontos(pontos-1);
+		if (pt1>-1 && pt0===-1) setPontos(pontos+1);
 		var teste = boxes
 		teste[id] = [boxes[id][0]-20*s,boxes[id][1]]
 		setBoxes(teste);
