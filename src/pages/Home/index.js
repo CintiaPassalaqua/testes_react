@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import * as S from './styled'
 import '../../style.css';
-import pista1 from './../../img/pista1.png';
 import ash1 from './../../img/ash.jpg';
 import ash2 from './../../img/ash2.jpg';
 import egg from './../../img/easteregg.png';
 import Canvas from './Canvas';
 
 function App(props) {
-  const [ procura, setProcura ] = useState('');
   const [ yi, setYi ] = useState(750);
   const [ xi, setXi ] = useState(-450);
-  const [ s, setS ] = useState(3/2);
+  const s = 3/2;
   const spots = [[10*s,190*s-300],[10*s,170*s-300],[30*s,190*s-300],[30*s,170*s-300],
 										[470*s,190*s-300],[470*s,170*s-300],[490*s,190*s-300],[490*s,170*s-300],
 										[390*s,-50*s-300],[390*s,-70*s-300],[410*s,-50*s-300],[410*s,-70*s-300]];
@@ -21,11 +18,8 @@ function App(props) {
 										[590*s,-150*s-300],[590*s,-110*s-300],[570*s,-170*s-300],[550*s,-150*s-300]]);
   const [ pontos, setPontos ] = useState(0);
   const [ personagem, setPersonagem ] = useState(ash1);
-  const [ acerto, setAcerto] = useState(false);
-  const [ mensagem, setMensagem ] = useState([]);
   const pos = 130*s;
   const posH = 70*s;
-  const { id } = useParams()
   const paredes = [[0,0,-140,0],[0,160,-140,-140],[200,200,-140,-100],[140,200,-100,-100],[140,140,-100,0],[0,140,0,0], //quarto1
 					[160,160,-180,-140],[160,240,-180,-180],[290,340,-180,-180],[340,340,-180,-175],[340,340,-145,-135],[200,350,-100,-100], //escritorio
 				   [340, 500, -140, -140],[500,500,-280,-140],[380,500,-280,-280],[380,380,-280,-180],[340,380,-180,-180], //quarto2
@@ -34,16 +28,7 @@ function App(props) {
 					[530,630,-380,-380],[620,620,-380,-220],[530,630,-220,-220],[540,540,-300,-220],[520,530,-300,-300],[520,520,-300,-280],[340,520,-280,-280],[340,340,-280,-180],[290,340,-200,-200],[280,280,-200,-180]]
   
   
-  function handlePesquisa() { 
-	if (procura==='a') {
-		setMensagem(["Pista 1 "+id,"bhdbf sdhfdg fsdfsdgfh sdfhgsdyfgefg y efysg duyf gsduyfg suyd f"]);
-		setAcerto(true)
-		setS(3/2);
-		return;	
-	}
-	setMensagem("");
-  }
-  
+
   function podeIr(dx, dy, m) {
 	  var id = paredes.findIndex((p) => p[0]*s+xi-5<posH+dx*m && p[1]*s+xi+5>posH+dx*m && p[2]*s+yi-5<pos+dy*m && p[3]*s+yi+5>pos+dy*m);
 	  if (id>-1) return -2
@@ -330,18 +315,14 @@ ctx.stroke(); // Draw it
 }
 
 	}
-	if (!acerto) {
 		return (<><S.Content><Canvas draw={draw} /></S.Content>		
 		<S.Content>		
 		<S.ButtonArrow type="button" onClick={paraEsquerda}>&#8592;</S.ButtonArrow>
 		<S.ButtonArrow type="button" onClick={paraBaixo}>&#8595;</S.ButtonArrow>
 		<S.ButtonArrow type="button" onClick={paraCima}>&#8593;</S.ButtonArrow>
 		<S.ButtonArrow type="button" onClick={paraDireita}>&#8594;</S.ButtonArrow>
-		</S.Content>
-		<S.Content><S.ImagemPrincipal src={pista1} /></S.Content><S.Content>
-		<S.Input name="bla" id="bli" className="resposta" placeholder="Resposta" value={procura} onKeyDown={handlePesquisa} onChange={e => setProcura(e.target.value.toLowerCase()) } />
-	<S.Button type="button" onClick={handlePesquisa}>></S.Button></S.Content></>);
-	}
+		</S.Content></>);
+	
   }
 
   useEffect(() => {},[]);
@@ -357,12 +338,6 @@ ctx.stroke(); // Draw it
 
     <S.Container>    
 	{ displayInput() }
-	<S.Content>	
-	<h1>{ mensagem[0] }</h1>
-	</S.Content>
-	<S.Content>	
-	<p>{ mensagem[1] }</p>
-	</S.Content>
 	</S.Container></>
   );
 }
