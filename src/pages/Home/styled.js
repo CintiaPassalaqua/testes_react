@@ -50,10 +50,11 @@ export const ButtonArrow = styled.button`
 	height: 3.5rem;
 	width: 3.5rem;
 	margin: 0.5rem;
-	border-radius: 0 .25rem .25rem 0;
+	border-radius: .5rem .5rem .5rem .5rem;
 	color: #fff;
 	background: #000;
 	touch-action: manipulation;
+	font-size: 2rem;
 	
 	&:focus,
 	&:active {
